@@ -1,0 +1,22 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      LLM_PROVIDER: ${LLM_PROVIDER:-mock}
+      HUNYUAN_API_KEY: ${HUNYUAN_API_KEY:-}
+      HUNYUAN_BASE_URL: ${HUNYUAN_BASE_URL:-https://tokenhub.tencentcloudmaas.com/v1}
+      HUNYUAN_MODEL: ${HUNYUAN_MODEL:-hy3}
+    volumes:
+      - ./data:/app/data
+  ui:
+    build: .
+    command: ["streamlit", "run", "ui/streamlit_app.py", "--server.address", "0.0.0.0"]
+    ports:
+      - "8501:8501"
+    environment:
+      SUPPORT_AGENT_API: http://api:8000
+    depends_on:
+      - api
+

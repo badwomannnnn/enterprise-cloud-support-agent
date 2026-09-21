@@ -1,0 +1,12 @@
+fastapi>=0.115,<1
+uvicorn[standard]>=0.34,<1
+pydantic>=2.10,<3
+sqlalchemy>=2.0,<3
+httpx>=0.28,<1
+python-dotenv>=1.0,<2
+streamlit>=1.42,<2
+chromadb>=1.0,<2
+langgraph>=0.6,<1
+pytest>=8.3,<9
+pytest-cov>=6,<7
+

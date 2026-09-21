@@ -1,0 +1,5 @@
+python-docx>=1.1,<2
+reportlab>=4.2,<5
+Pillow>=11,<12
+imageio-ffmpeg>=0.6,<1
+cairosvg>=2.9,<3

@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.env
+data/*.db
+data/chroma/
+tmp/
+.codex-finalizer/
+.chart-data-*/
+node_modules/
+docs/rendered/
