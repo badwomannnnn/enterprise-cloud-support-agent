@@ -1,0 +1,13 @@
+{
+  "demo-account": {
+    "description": "达到演示 QPS 上限的账户",
+    "qps_limit": 5,
+    "qps_used": 5
+  },
+  "healthy-account": {
+    "description": "状态正常的演示账户",
+    "qps_limit": 20,
+    "qps_used": 3
+  }
+}
+
