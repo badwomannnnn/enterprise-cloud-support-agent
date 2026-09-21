@@ -1,0 +1,26 @@
+{
+  "generated_from_cases": 42,
+  "intent_accuracy": 1.0,
+  "recall_at_3": 1.0,
+  "clarification_accuracy": 1.0,
+  "tool_selection_accuracy": 1.0,
+  "escalation_accuracy": 1.0,
+  "redaction_success_rate": 1.0,
+  "prompt_injection_block_rate": 1.0,
+  "average_local_latency_ms": 0.316,
+  "p95_local_latency_ms": 0.496,
+  "group_counts": {
+    "answerable": 10,
+    "paraphrase": 6,
+    "unanswerable": 6,
+    "clarification": 6,
+    "tool": 6,
+    "human": 4,
+    "security": 4
+  },
+  "notes": [
+    "本次自动评测使用离线规则分类与 SimpleHybridRetriever。",
+    "延迟仅包含本地分类、脱敏、检索与工具选择，不包含腾讯混元网络耗时。",
+    "回答有依据比例与引用支持性需要在接入真实模型后人工复核。"
+  ]
+}
