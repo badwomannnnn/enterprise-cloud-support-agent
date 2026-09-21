@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071426"/>
+      <stop offset="1" stop-color="#102A43"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#69D2E7"/>
+    </marker>
+    <style>
+      .title{font:700 46px 'Microsoft YaHei','Noto Sans CJK SC',sans-serif;fill:#F8FAFC}
+      .sub{font:400 21px 'Microsoft YaHei','Noto Sans CJK SC',sans-serif;fill:#A9C1D9}
+      .lane{fill:#0E2238;stroke:#284862;stroke-width:2}
+      .box{fill:#15314C;stroke:#3D6381;stroke-width:2;filter:url(#shadow)}
+      .accent{fill:#123F55;stroke:#69D2E7;stroke-width:3;filter:url(#shadow)}
+      .label{font:700 24px 'Microsoft YaHei','Noto Sans CJK SC',sans-serif;fill:#F8FAFC}
+      .small{font:400 18px 'Microsoft YaHei','Noto Sans CJK SC',sans-serif;fill:#C7D8E8}
+      .laneLabel{font:700 19px 'Microsoft YaHei','Noto Sans CJK SC',sans-serif;fill:#69D2E7;letter-spacing:2px}
+      .arrow{stroke:#69D2E7;stroke-width:4;fill:none;marker-end:url(#arrow)}
+      .dash{stroke:#6E91AC;stroke-width:3;fill:none;stroke-dasharray:10 10;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <text x="92" y="82" class="title">企业云产品智能支持与工单协同 Agent</text>
+  <text x="94" y="120" class="sub">确定性工具处理查询，RAG 提供依据，工单状态机承接人工协同</text>
+
+  <rect x="70" y="165" width="1460" height="150" rx="24" class="lane"/>
+  <text x="96" y="202" class="laneLabel">交互层</text>
+  <rect x="145" y="220" width="230" height="70" rx="18" class="box"/>
+  <text x="260" y="251" text-anchor="middle" class="label">企业用户</text>
+  <text x="260" y="277" text-anchor="middle" class="small">咨询与故障报修</text>
+  <rect x="495" y="220" width="300" height="70" rx="18" class="accent"/>
+  <text x="645" y="251" text-anchor="middle" class="label">Streamlit Demo</text>
+  <text x="645" y="277" text-anchor="middle" class="small">用户支持与工程师工作台</text>
+  <rect x="925" y="220" width="250" height="70" rx="18" class="box"/>
+  <text x="1050" y="251" text-anchor="middle" class="label">支持工程师</text>
+  <text x="1050" y="277" text-anchor="middle" class="small">分派、处理与关闭</text>
+  <line x1="375" y1="255" x2="475" y2="255" class="arrow"/>
+  <line x1="795" y1="255" x2="905" y2="255" class="arrow"/>
+
+  <rect x="70" y="345" width="1460" height="280" rx="24" class="lane"/>
+  <text x="96" y="382" class="laneLabel">服务与决策层</text>
+  <rect x="120" y="425" width="210" height="92" rx="18" class="box"/>
+  <text x="225" y="465" text-anchor="middle" class="label">FastAPI</text>
+  <text x="225" y="493" text-anchor="middle" class="small">接口与数据校验</text>
+  <rect x="400" y="425" width="235" height="92" rx="18" class="box"/>
+  <text x="518" y="465" text-anchor="middle" class="label">安全与分诊</text>
+  <text x="518" y="493" text-anchor="middle" class="small">脱敏、分类、追问</text>
+  <rect x="705" y="410" width="260" height="122" rx="22" class="accent"/>
+  <text x="835" y="461" text-anchor="middle" class="label">Agent 工作流</text>
+  <text x="835" y="490" text-anchor="middle" class="small">LangGraph 可替换编排</text>
+  <rect x="1035" y="405" width="210" height="70" rx="18" class="box"/>
+  <text x="1140" y="446" text-anchor="middle" class="label">RAG</text>
+  <rect x="1275" y="405" width="205" height="70" rx="18" class="box"/>
+  <text x="1378" y="446" text-anchor="middle" class="label">诊断工具</text>
+  <rect x="1035" y="515" width="210" height="70" rx="18" class="box"/>
+  <text x="1140" y="556" text-anchor="middle" class="label">腾讯混元</text>
+  <rect x="1275" y="515" width="205" height="70" rx="18" class="box"/>
+  <text x="1378" y="556" text-anchor="middle" class="label">工单状态机</text>
+  <line x1="330" y1="471" x2="380" y2="471" class="arrow"/>
+  <line x1="635" y1="471" x2="685" y2="471" class="arrow"/>
+  <line x1="965" y1="449" x2="1015" y2="440" class="arrow"/>
+  <line x1="965" y1="465" x2="1255" y2="440" class="arrow"/>
+  <line x1="965" y1="488" x2="1015" y2="550" class="arrow"/>
+  <line x1="965" y1="505" x2="1255" y2="550" class="arrow"/>
+
+  <rect x="70" y="655" width="1460" height="175" rx="24" class="lane"/>
+  <text x="96" y="692" class="laneLabel">数据层</text>
+  <rect x="165" y="722" width="245" height="76" rx="18" class="box"/>
+  <text x="288" y="755" text-anchor="middle" class="label">知识文档</text>
+  <text x="288" y="781" text-anchor="middle" class="small">17 篇虚拟产品资料</text>
+  <rect x="520" y="722" width="245" height="76" rx="18" class="box"/>
+  <text x="642" y="755" text-anchor="middle" class="label">检索索引</text>
+  <text x="642" y="781" text-anchor="middle" class="small">Chroma 或离线检索</text>
+  <rect x="875" y="722" width="245" height="76" rx="18" class="box"/>
+  <text x="997" y="755" text-anchor="middle" class="label">模拟业务数据</text>
+  <text x="997" y="781" text-anchor="middle" class="small">额度、服务与错误码</text>
+  <rect x="1230" y="722" width="245" height="76" rx="18" class="box"/>
+  <text x="1352" y="755" text-anchor="middle" class="label">SQLite</text>
+  <text x="1352" y="781" text-anchor="middle" class="small">工单、反馈与时间线</text>
+  <line x1="410" y1="760" x2="500" y2="760" class="arrow"/>
+  <path d="M642 722 C642 650 1050 650 1120 585" class="dash"/>
+  <path d="M997 722 C997 660 1330 660 1378 585" class="dash"/>
+  <path d="M1352 722 C1352 650 1378 650 1378 585" class="dash"/>
+
+  <text x="80" y="868" class="small">演示系统  所有工具数据均为模拟  真实接入需补充鉴权、审计、监控与 SLA</text>
+</svg>
