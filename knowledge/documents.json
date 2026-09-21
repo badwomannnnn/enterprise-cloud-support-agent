@@ -1,0 +1,155 @@
+[
+  {
+    "document_id": "kb-auth-401",
+    "title": "API 鉴权与 401 错误处理",
+    "source": "docs://cloudpilot/api/authentication",
+    "product": "CloudPilot AI",
+    "category": "authentication",
+    "error_codes": ["401"],
+    "content": "CloudPilot AI 使用 Bearer API Key 鉴权。客户端应把密钥放入 Authorization 请求头，不要写入 URL、日志或代码仓库。出现 401 或密钥验证失败时，应检查 Key 是否完整、是否属于当前环境、环境变量是否已经加载，以及请求头是否带有 Bearer 前缀。密钥疑似泄露时应立即吊销并重新创建。"
+  },
+  {
+    "document_id": "kb-permission-403",
+    "title": "模型权限与 403 错误",
+    "source": "docs://cloudpilot/api/permissions",
+    "product": "CloudPilot AI",
+    "category": "authentication",
+    "error_codes": ["403"],
+    "content": "403 表示请求已通过身份识别，但账号没有访问目标模型或资源的权限。排查时核对模型是否已开通、子账号策略是否包含调用权限、资源是否位于可用地域。不要通过反复重试解决权限问题。"
+  },
+  {
+    "document_id": "kb-request-400",
+    "title": "请求参数与 400 错误",
+    "source": "docs://cloudpilot/api/request-schema",
+    "product": "CloudPilot AI",
+    "category": "parameters",
+    "error_codes": ["400"],
+    "content": "400 通常由 JSON 格式错误、必填字段缺失、字段类型错误或不支持的参数组合引起。最小排查步骤是保存脱敏后的请求体，使用 JSON 校验器确认语法，再对照接口 Schema 检查 model、messages、stream 等字段。"
+  },
+  {
+    "document_id": "kb-resource-404",
+    "title": "资源不存在与 404 错误",
+    "source": "docs://cloudpilot/api/resources",
+    "product": "CloudPilot AI",
+    "category": "parameters",
+    "error_codes": ["404"],
+    "content": "404 表示接口路径、模型名称、知识库 ID 或其他资源标识不存在。应确认 Base URL、API 版本和资源名称，注意测试环境与生产环境使用不同的资源 ID。"
+  },
+  {
+    "document_id": "kb-rate-limit-429",
+    "title": "429 限流与重试策略",
+    "source": "docs://cloudpilot/operations/rate-limit",
+    "product": "CloudPilot AI",
+    "category": "quota",
+    "error_codes": ["429"],
+    "content": "429 表示请求频率、并发数或 Token 用量超过账户限制。客户端应降低并发，使用带随机抖动的指数退避，并限制最大重试次数。排查时同时确认 QPS、TPM、并发额度和账户余额，避免所有实例同时立即重试。"
+  },
+  {
+    "document_id": "kb-quota",
+    "title": "账户额度与用量查看",
+    "source": "docs://cloudpilot/console/quota",
+    "product": "CloudPilot AI",
+    "category": "quota",
+    "error_codes": [],
+    "content": "控制台的用量页面展示账户剩余 Token、当前 QPS 使用量和并发限制。额度告警只用于提醒，不会自动提高上限。生产业务应为峰值保留余量，并分别监控请求数、输入 Token 和输出 Token。"
+  },
+  {
+    "document_id": "kb-billing",
+    "title": "Token 计费与成本记录",
+    "source": "docs://cloudpilot/billing/token",
+    "product": "CloudPilot AI",
+    "category": "billing",
+    "error_codes": [],
+    "content": "模型调用按输入和输出 Token 分别统计。应用应记录模型名称、请求时间、输入 Token、输出 Token 和业务场景，避免记录原始敏感内容。成本评估应使用真实调用记录，不能只用字符数直接代替 Token。"
+  },
+  {
+    "document_id": "kb-timeout",
+    "title": "请求超时与 408 504 错误",
+    "source": "docs://cloudpilot/operations/timeout",
+    "product": "CloudPilot AI",
+    "category": "network",
+    "error_codes": ["408", "504"],
+    "content": "408 或 504 可能来自客户端超时、网关等待上游超时或网络不稳定。应记录总耗时和 Request ID，检查输入长度、代理与 DNS，适当提高客户端超时。自动重试仅适用于幂等请求，并应设置次数上限。"
+  },
+  {
+    "document_id": "kb-server-5xx",
+    "title": "服务端 5xx 错误处理",
+    "source": "docs://cloudpilot/operations/server-errors",
+    "product": "CloudPilot AI",
+    "category": "incident",
+    "error_codes": ["500", "502", "503"],
+    "content": "500、502 和 503 属于服务端或上游异常。先查询服务状态，保留发生时间、Request ID、地域和影响范围。可以进行有限次数的退避重试。如果生产环境大面积失败，应立即创建 P1 工单，不要等待多次自动重试。"
+  },
+  {
+    "document_id": "kb-request-id",
+    "title": "Request ID 的作用",
+    "source": "docs://cloudpilot/support/request-id",
+    "product": "CloudPilot AI",
+    "category": "support",
+    "error_codes": [],
+    "content": "Request ID 用于把客户请求与服务端日志关联。提交故障时应提供原始 Request ID、发生时间和地域，但不要包含 API Key。若响应头和响应体都没有 Request ID，应提供客户端生成的追踪 ID。"
+  },
+  {
+    "document_id": "kb-sdk",
+    "title": "SDK 版本与依赖冲突",
+    "source": "docs://cloudpilot/sdk/compatibility",
+    "product": "CloudPilot AI",
+    "category": "sdk",
+    "error_codes": [],
+    "content": "SDK 问题常见于版本不兼容、方法名变化和依赖冲突。排查时记录语言、SDK 版本、运行时版本和最小复现代码。升级前阅读变更说明，并在隔离环境验证，避免直接修改生产依赖。"
+  },
+  {
+    "document_id": "kb-quickstart",
+    "title": "对话 API 快速接入",
+    "source": "docs://cloudpilot/api/quickstart",
+    "product": "CloudPilot AI",
+    "category": "operation",
+    "error_codes": [],
+    "content": "接入对话 API 需要创建密钥、设置 Base URL、选择模型并发送 messages 数组。首次调用应使用最小请求验证鉴权与网络，再逐步加入流式输出、工具调用和业务提示词。密钥只保存在环境变量或密钥管理服务中。"
+  },
+  {
+    "document_id": "kb-streaming",
+    "title": "流式输出与连接中断",
+    "source": "docs://cloudpilot/api/streaming",
+    "product": "CloudPilot AI",
+    "category": "operation",
+    "error_codes": [],
+    "content": "流式输出通过 SSE 持续返回增量内容。客户端需要逐块拼接文本，并处理连接中断、空数据块和结束标记。网络断开后是否重试取决于业务是否允许重复生成。"
+  },
+  {
+    "document_id": "kb-context",
+    "title": "上下文长度超限",
+    "source": "docs://cloudpilot/models/context-window",
+    "product": "CloudPilot AI",
+    "category": "model",
+    "error_codes": ["400"],
+    "content": "当输入消息、工具结果和预期输出超过模型上下文窗口时，请求会失败或被截断。应先删除无关历史，压缩检索片段，再限制输出长度。不能只截断最新的用户问题。"
+  },
+  {
+    "document_id": "kb-rag-citations",
+    "title": "知识库引用与拒答规则",
+    "source": "docs://cloudpilot/knowledge/citations",
+    "product": "CloudPilot AI",
+    "category": "knowledge",
+    "error_codes": [],
+    "content": "知识库回答必须展示文档标题和相关片段。检索结果与问题无关时，系统应说明没有可靠依据，而不是根据常识补全。人工确认后的解决方案只能先进入候选知识区，审核后才能发布。"
+  },
+  {
+    "document_id": "kb-ticket-priority",
+    "title": "工单优先级与升级规则",
+    "source": "docs://cloudpilot/support/priority",
+    "product": "CloudPilot AI",
+    "category": "support",
+    "error_codes": [],
+    "content": "P1 用于生产环境大面积不可用或明确的数据安全事件，需要立即升级人工。P2 用于部分功能受阻、持续报错或额度异常。P3 用于一般咨询和不影响核心业务的问题。优先级必须依据环境和影响范围判断。"
+  },
+  {
+    "document_id": "kb-data-security",
+    "title": "日志脱敏与数据安全",
+    "source": "docs://cloudpilot/security/log-redaction",
+    "product": "CloudPilot AI",
+    "category": "security",
+    "error_codes": [],
+    "content": "写入日志、知识库或工单前，应遮盖 API Key、SecretKey、手机号和邮箱。Request ID 通常可用于排障，但仍应按照客户数据规则保存。发现密钥泄露时应停止继续传播原文，立即吊销密钥并转人工。"
+  }
+]
